@@ -1,0 +1,45 @@
+├── Soluções
+│   ├── Serviços de TI
+│   └── Computação em Nuvem
+│   └── Cyber Segurança
+├── Solicitar Suporte
+│   ├── Abrir Chamado
+│   └── Como Funciona o suporte
+├── Sobre
+├── Blog    
+└── Ferramentas para Dev     
+
+
+    
+
+
+tem uma página que tem uma imagem de tecnologia e esta frase alinhada ao lado esquerdo e as palavras o mundo, e seu negócio ficam se intercalando formando uma nova frase...
+Ajudamos
+líderes
+inovadores a
+transformar
+"o mundo" / "seu negócio"
+
+
+Por enquanto necessito apenas que, baseado nos meus serviços consegue fazer uma frase similar que eu possa usar o mesmo conceito no meu site... uma frase que a ultima palavra forma novas frases... 
+
+A tecnologia que impulsiona "o seu negócio"
+
+crie mais 3 para substituir "o seu negócio", porém baseado nos serviços e clientes do meu nicho
+
+
+├───────────────────────────────│  
+│		                │  
+│ texto		                │  
+│ aqui                          │ 
+│ alternada                     │ 
+│                               │ 
+│                               │ 
+├────────────────────────────────
+
+
+/* Estilos para títulos */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fonte-conteudo-titulo); /* Krona One */
+    color: var(--cor-primaria); /* Laranja-chama */
+}

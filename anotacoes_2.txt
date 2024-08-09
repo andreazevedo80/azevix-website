@@ -1,0 +1,19 @@
+├── Soluções
+│   ├── Serviços de TI
+│   └── Computação em Nuvem
+│   └── Cyber Segurança
+├── Solicitar Suporte
+│   ├── Abrir Chamado
+│   └── Como Funciona o suporte
+├── Sobre
+├── Blog    
+└── Ferramentas para Dev         
+
+
+A tecnologia
+que
+impulsiona
+o seu negócio / seus projetos / seu futuro digital / sua infraestrutura
+
+
+Por enquanto necessito apenas que, baseado nos meus serviços consegue fazer uma frase similar que eu possa usar o mesmo conceito no meu site... uma frase que a ultima palavra forma novas frases... Não quero o código.

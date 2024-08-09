@@ -1,0 +1,209 @@
+/* styles.css */
+
+/* Importar as fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #FF8C00;
+    --cor-secundaria: #612A91;
+    --cor-terciaria: #FFEACE;
+    --cor-hover: #272727;
+
+    --fonte-cabecalho: 'Montserrat', sans-serif;
+    --fonte-conteudo-titulo: 'Krona One', sans-serif;
+    --fonte-conteudo-texto: 'Montserrat', sans-serif;
+    --fonte-apresentacao-link:'Montserrat', sans-serif;
+    --fonte-apresentacao-link-subtitulo: 'Krona One', sans-serif;
+    --fonte-rodape: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos gerais do body */
+body {
+    background-color: #ffffff; /* Branco */
+    font-family: var(--fonte-conteudo-texto); /* Montserrat */
+    color: var(--cor-primaria); /* Laranja-chama */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para o logotipo */
+.logo {
+    width: 150px; /* Ajuste conforme necessário */
+}
+
+/* Estilos para o header */
+header {
+    background-color: #ffffff; /* Fundo branco para o header */
+    display: flex;
+    align-items: center; /* Alinha itens verticalmente no centro */
+    justify-content: flex-start; /* Alinha itens à esquerda */
+}
+
+/* Estilos para o menu */
+.navbar {
+    flex-grow: 1; /* Faz o menu usar o espaço restante */
+}
+
+/* Estilos para o menu suspenso */
+.navbar-nav .nav-link {
+    color: var(--cor-primaria); /* Laranja-chama */
+}
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+    color: #ffffff; /* Branco ao passar o mouse */
+    background-color: var(--cor-secundaria); /* Azul ao passar o mouse */
+}
+
+.dropdown-menu {
+    background-color: #ffffff; /* Branco para o fundo do menu suspenso */
+}
+
+.dropdown-menu .dropdown-item {
+    color: var(--cor-primaria); /* Laranja-chama */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: var(--cor-secundaria); /* Azul ao passar o mouse */
+    color: #ffffff; /* Branco ao passar o mouse */
+}
+
+
+/* Estilos para textos */
+p, span, a {
+    font-family: var(--fonte-conteudo-texto); /* Montserrat */
+    color: var(--cor-primaria); /* Laranja-chama */
+}
+
+/* Estilos para a barra de contato */
+.barra-contato {
+    background-color: #FF8C00; /* Laranja-chama */
+    padding: 10px 20px;
+    font-family: var(--fonte-apresentacao-link); /* Montserrat */
+}
+
+.texto-contato {
+    font-weight: bold; /* Negrito */
+    color: #ffffff; /* Branco */
+    text-align: center; /* Centraliza o texto */
+    flex: 1; /* Ocupa o espaço disponível */
+}
+
+.icone-instagram img {
+    width: 24px; /* Ajuste o tamanho do ícone conforme necessário */
+    height: auto; /* Mantém a proporção do ícone */
+}
+
+/* Estilos para links */
+a {
+    color: var(--cor-primaria); /* Laranja-chama */
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--cor-secundaria); /* Roxo índigo */
+}
+
+/* Estilos para botões */
+button {
+    background-color: var(--cor-primaria); /* Laranja-chama */
+    color: #ffffff; /* Branco para o texto do botão */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--cor-secundaria); /* Roxo índigo */
+}
+
+/* Estilos para áreas com fundo marfim claro */
+.fundo-marfim {
+    background-color: var(--cor-terciaria); /* Marfim claro */
+}
+
+/* Estilos para imagem com overlay */
+.img-container {
+    position: relative;
+}
+
+.img-fundo {
+    width: 100%; /* Ajusta a largura da imagem ao tamanho da tela */
+    height: 80vh; /* Ajusta a altura da imagem ao tamanho da tela */
+    object-fit: cover; /* Mantém a proporção da imagem */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: rgba(0, 0, 0, 0); /* Overlay escuro com opacidade */
+    z-index: 2; /* Coloca o overlay abaixo do texto */
+}
+
+.frase-sobreposta {
+    position: absolute; /* Garante que o texto fique sobre o overlay e a imagem */
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%); /* Centraliza o texto */
+    color: #FFFFFF !important; /* Texto branco */
+    font-family: var(--fonte-conteudo-titulo); /* Usando a fonte definida */
+    z-index: 3; /* Coloca o texto acima do overlay e da imagem */
+    text-align: center; /* Centraliza o texto */
+    font-size: 10rem; /* Aumente o tamanho da fonte para 3em */
+    }
+    @media (max-width: 1200px) {
+        .frase-sobreposta {
+            font-size: 10rem;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .frase-sobreposta {
+            font-size: 1.5rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .frase-sobreposta {
+            font-size: 1.2rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .frase-sobreposta {
+            font-size: 1rem;
+        }
+    }
+
+.text-table {
+    width: auto;
+}
+
+#palavra-alternada-container {
+    min-width: 220px; /* Ajuste este valor conforme o tamanho das palavras alternadas */
+    text-align: center; /* Centraliza a palavra alternada */
+}
+
+#palavra-alternada {
+    color: var(--cor-primaria);
+    font-family: var(--fonte-conteudo-titulo);
+    font-size: 2.25rem; /* Aumente o tamanho da fonte para 2em */
+    }
+
+/* Garantir que o container não tenha padding */
+.container-fluid {
+    padding: 0;
+    position: relative;
+}
+
+/* Estilo para a linha */
+.row {
+    margin: 0;
+}
