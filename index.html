@@ -21,16 +21,39 @@
     <!-- Seu JavaScript personalizado -->
     <script src="js/scripts.js"></script>
 
-<section>  <!-- Barra de Contato -->
- 
-    <div class="barra-contato d-flex justify-content-between align-items-center">
-      <span class="texto-contato">Contato (81) 99688-5589</span>
-      <a href="https://www.instagram.com/azevixtecnologia" target="_blank" class="icone-instagram">
-          <img src="./img/instagram-icon.png" alt="Instagram" />
-      </a>
-  </div>
 
-</section>
+    <section> <!-- Barra de Contato -->
+        <nav class="navbar navbar-expand-lg navbar-contato">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link contato-link d-flex align-items-center text-white" href="https://api.whatsapp.com/send?phone=558199688-5589&text=">
+                            <img src="./img/whatsapp-icon.png" alt="WhatsApp" width="30" height="24" class="me-2">
+                            (81) 99688-5589
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link contato-link d-flex align-items-center text-white" href="mailto:contato@azevix.com.br">
+                            <img src="./img/icon_mail.png" alt="Email" width="30" height="24" class="me-2">
+                            contato@azevix.com.br
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link contato-link d-flex align-items-center text-white" href="https://www.instagram.com/azevixtecnologia" target="_blank" rel="noopener">
+                            <img src="./img/instagram-icon.png" alt="Instagram" width="30" height="24" class="me-2">
+                            Instagram
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link contato-link d-flex align-items-center text-white" href="http://azevix.ddns.net:8080/" target="_blank" rel="noopener">
+                            <img src="./img/icon_suporte.png" alt="Suporte" width="30" height="24" class="me-2">
+                            Suporte
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
 
 <section> <!-- Header com Logotipo e Menu -->
  
@@ -53,21 +76,21 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        SOLICITAR SUPORTE
+                        CONTATO
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="http://azevix.ddns.net:8080/">Abrir Chamado</a></li>
-                        <li><a class="dropdown-item" href="#">Como Funciona o suporte</a></li>
+                        <li><a class="dropdown-item" href="./pages/faleConosco.html">Fale Conosco</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">SOBRE</a>
+                    <a class="nav-link" href="./pages/sobre.html">SOBRE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">BLOG</a>
+                    <a class="nav-link" href="./blog/index.html">BLOG</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">DEVTOOLS</a>
+                    <a class="nav-link" href="./pages/devtools.html">DEVTOOLS</a>
                 </li>
             </ul>
         </div>
@@ -81,8 +104,8 @@
     <div class="row">
         <!-- Imagem fixa ao fundo -->
         <div class="col-md-12 img-container">
-            <img src="./img/imagem_capa.png" class="img-fundo" alt="Imagem de Fundo">
-            <div class="overlay"></div>
+            <img src="./img/imagem_capa.webp" class="img-fundo" alt="Imagem de Fundo">
+
             <!-- Texto fixo sobre a imagem -->
             <div class="frase-sobreposta">
                 <table class="text-table">
@@ -115,7 +138,6 @@
   <div>
     <br>
     <h2 class="titulo_solucoes">Nossas Soluções</h2>
-    <p style="text-decoration: underline;"></p>
     <p class="subtitulo_solucoes">O que podemos fazer por você?</p>
   </div>
 
@@ -202,14 +224,54 @@
 
   <!-- Botão Saiba Mais -->
   <div class="botao-container"> <!-- Contêiner para centralizar o botão -->
-    <button class="btn-saiba-mais" onclick="irParaPagina()">Saiba Mais</button> <!-- Botão com ação onclick -->
+    <button type="button" class="btn-saiba-mais" onclick="irParaPagina()">Saiba Mais</button> <!-- Botão com ação onclick -->
   </div>
   <br>
 </section>
 
-    <footer>
-        <!-- Rodapé -->
-         <p>Desenvolvido por André Azevedo</p>
-    </footer>    
+<!-- Rodapé -->
+<footer>
+    <!-- Primeira Parte -->
+    <div class="rodape-primeira-parte">
+        <div class="coluna-empresa">
+            <img src="./img/Logo_Azevix.png" alt="Logo da Empresa" class="logo-empresa">
+            <p class="slogan">A tecnologia que impulsiona seu negócio</p>
+        </div>
+        <div class="coluna-paginas">
+             <ul>
+                <li><a href="./index.html">Início</a></li>
+                <li><a href="./pages/sobre.html">Sobre Nós</a></li>
+                <li><a href="./pages/servicos.html">Soluções</a></li>
+                <li><a href="./blog/index.html">Blog</a></li>
+                <li><a href="./pages/devtools.html">DevTools</a></li>
+                <!-- Adicione mais links conforme necessário -->
+            </ul>
+        </div>
+        <div class="coluna-siga-nos">
+            <h4>Siga-nos</h4>
+            <a href="https://www.instagram.com/azevixtecnologia" target="_blank" class="icone-instagram" rel="noopener">
+                <img src="./img/instagram-icon.png" alt="Instagram" />
+            </a>
+            <br><br>
+            <a href="./pages/faleConosco.html" class="fale-conosco">Fale Conosco</a>
+        </div>
+    </div>
+
+    <!-- Segunda Parte -->
+    <div class="rodape-segunda-parte">
+        <div class="coluna-direitos">
+            <p>© 2024 - Todos os direitos reservados. All Rights Reserved.</p>
+        </div>
+        <div class="coluna-politica">
+            <a href="./pages/politicaPrivacidade.html">Política de Privacidade</a>
+        </div>
+        <div class="coluna-desenvolvedor">
+            <p>Desenvolvido por André Azevedo</p>
+        </div>
+    </div>
+</footer>
+
+
+
 </body>
 </html>
