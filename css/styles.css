@@ -1,0 +1,938 @@
+/* styles.css */
+
+/* Importar as fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    /* Cores da sua marca */
+    --cor-principal-azevix: #612A91;   /* Seu Roxo Índigo como cor principal */
+    --cor-acento-azevix: #FF8C00;     /* Seu Laranja como cor de destaque */
+    
+    /* Cores neutras e de texto baseadas no exemplo para harmonia */
+    --cor-texto-primario: #1e293b;     /* Cinza escuro para textos principais */
+    --cor-texto-secundario: #64748b;   /* Cinza médio para textos secundários */
+    --cor-fundo-claro: #f8fafc;       /* Cinza muito claro para fundos de seções */
+    --cor-fundo-branco: #ffffff;
+    --cor-borda: #e2e8f0;             /* Cor para bordas */
+    --cor-hover: #272727; /* Mantido do seu original para elementos específicos se aplicável */
+
+    /* Fontes - Priorizando Inter para o corpo, mantendo Krona One para títulos de impacto */
+    --fonte-principal: 'Inter', sans-serif;
+    --fonte-titulo-impacto: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif; /* Mantido para compatibilidade onde você já usava */
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
+}
+
+/* Estilos gerais do body */
+body {
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto-primario);
+    background-color: var(--cor-fundo-branco);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fonte-principal); /* Usar Inter para a maioria dos títulos */
+    color: var(--cor-texto-primario);
+    margin-bottom: 0.5em;
+}
+
+/* Componentes comuns */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Estilos para o logotipo */
+.logo {
+    width: 150px; /* Tamanho do Logotipo */
+    margin-right: 20px; /* Espaçamento entre o logotipo e o menu */
+}
+
+/* Estilos para a Barra de Contato (topo) */
+.navbar-contato {
+    background-color: var(--cor-principal-azevix); /* Seu Roxo */
+    padding: 8px 0;
+    font-size: 0.875rem;
+}
+
+.navbar-contato .container-fluid {
+    display: flex;
+    justify-content: flex-end; /* Alinha os itens à direita */
+    padding-right: 15px; /* Adiciona padding à direita para compensar o container-fluid do bootstrap */
+}
+
+.navbar-contato .contato-link {
+    color: var(--cor-fundo-branco);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Espaço entre os links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-contato .contato-link:hover {
+    color: var(--cor-acento-azevix); /* Seu Laranja ao passar o mouse */
+}
+
+.navbar-contato .contato-link img,
+.navbar-contato .contato-link i { /* Suporte para Font Awesome */
+    max-height: 18px; /* Ícones um pouco menores no topo */
+    margin-right: 8px;
+    color: var(--cor-fundo-branco); /* Para ícones Font Awesome, garanta que a cor seja branca */
+}
+
+/* Estilos para o Header (Navbar principal) */
+header {
+    background-color: var(--cor-fundo-branco);
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.main-navbar .navbar-brand {
+    padding: 0; /* Remove padding extra do brand do Bootstrap */
+}
+
+.main-navbar .navbar-nav .nav-link {
+    color: var(--cor-texto-primario); /* Cor do texto normal */
+    font-weight: 600;
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.main-navbar .navbar-nav .nav-link:hover,
+.main-navbar .navbar-nav .nav-link.active {
+    color: var(--cor-principal-azevix); /* Seu Roxo no hover/ativo */
+    background-color: var(--cor-fundo-claro); /* Fundo suave no hover */
+    border-radius: 5px;
+}
+
+.main-navbar .dropdown-menu {
+    background-color: var(--cor-fundo-branco);
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main-navbar .dropdown-item {
+    color: var(--cor-texto-primario);
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-navbar .dropdown-item:hover {
+    background-color: var(--cor-principal-azevix); /* Seu Roxo */
+    color: var(--cor-fundo-branco);
+}
+
+/* Estilos para a Hero Section (seção de capa) */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Garante que a seção ocupe a altura total da viewport */
+    overflow: hidden;
+    display: flex; /* Adiciona flexbox para ajudar no alinhamento do conteúdo */
+    align-items: center; /* Centraliza verticalmente o conteúdo flex */
+    justify-content: flex-start; /* Alinha o conteúdo ao início (esquerda) */
+}
+
+.hero-img-fundo {
+    position: absolute; /* Torna a imagem de fundo absoluta para preencher a seção */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.6); /* Escurece a imagem */
+    z-index: 1; /* Garante que a imagem esteja abaixo do conteúdo */
+}
+
+.hero-content {
+    position: relative; /* Torna o conteúdo relativo para que z-index funcione em relação à imagem */
+    color: var(--cor-fundo-branco);
+    text-align: left;
+    z-index: 2; /* Garante que o texto esteja acima da imagem */
+    padding-left: 10%; /* Move o conteúdo para a esquerda, correspondendo ao left: 10% anterior */
+    padding-right: 20px; /* Para evitar que o texto toque a borda direita em telas menores */
+    max-width: 90%; /* Limita a largura para que não se espalhe demais */
+}
+
+
+.hero-content h1 {
+    font-family: var(--fonte-titulo-impacto); /* Krona One para o título principal */
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsivo e com tamanho mínimo/máximo */
+    color: var(--cor-fundo-branco); /* Mantido branco para contraste */
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.hero-content .alternating-word {
+    color: var(--cor-acento-azevix); /* Seu Laranja para a palavra alternada */
+}
+
+.hero-content p {
+    font-family: var(--fonte-principal);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 600px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    color: var(--cor-fundo-branco);
+}
+
+.hero-content .btn-primary {
+    background-color: var(--cor-acento-azevix); /* Seu Laranja para o botão principal */
+    color: var(--cor-fundo-branco);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-content .btn-primary:hover {
+    background-color: var(--cor-principal-azevix); /* Seu Roxo no hover */
+    transform: translateY(-2px);
+}
+
+/* Seção de Soluções (cards flip) - Adaptando cores */
+.secao_solucoes {
+    /* background-image: url('../img/backgroud_solucao.png'); /* Caminho da imagem */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 0; /* Mais padding para espaçamento */
+}
+
+/* Estilos adicionais para os ícones Font Awesome nos cards da home */
+.card-icon-custom {
+    font-size: 5rem; /* Ajuste o tamanho conforme o original das suas imagens SVG */
+    color: var(--cor-fundo-branco); /* Usa a cor principal da sua marca */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease; /* Adiciona uma transição para o hover se quiser */
+}
+
+.card-front:hover .card-icon-custom {
+    transform: scale(1.1); /* Um pequeno efeito de zoom ao passar o mouse */
+}
+
+.titulo_solucoes {
+    color: var(--cor-principal-azevix); /* Seu Roxo */
+    font-family: var(--fonte-titulo-impacto); /* Krona One */
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitulo_solucoes {
+    color: var(--cor-texto-primario); /* Cinza escuro */
+    font-family: var(--fonte-principal); /* Inter */
+    font-weight: 500;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.solucoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; /* Aumenta o espaçamento entre os cards */
+    padding: 0 15px;
+}
+
+.solucoes .card {
+    position: relative;
+    width: 280px; /* Um pouco maior */
+    height: 220px; /* Um pouco maior */
+    perspective: 1000px;
+    margin: 0; /* Removendo margem externa para usar gap do flexbox */
+    border: none; /* Removendo borda padrão do Bootstrap */
+    background: transparent; /* Fundo transparente para o container do card */
+}
+
+.solucoes .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.solucoes .card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.solucoes .card-front,
+.solucoes .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 20px; /* Aumenta o padding */
+    box-sizing: border-box;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+}
+
+.solucoes .card-front {
+    background-color: var(--cor-principal-azevix); /* Seu Roxo */
+    flex-direction: column;
+    color: var(--cor-fundo-branco);
+}
+
+.solucoes .card-front img {
+    width: 60px; /* Ícones maiores */
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.solucoes .card-front h3 {
+    font-family: var(--fonte-principal); /* Inter */
+    font-size: 1.3rem;
+    color: var(--cor-fundo-branco);
+    font-weight: 600;
+}
+
+.solucoes .card-back {
+    background-color: var(--cor-fundo-branco);
+    color: var(--cor-texto-secundario); /* Cinza médio */
+    transform: rotateY(180deg);
+    text-align: center; /* Centraliza o texto no verso também */
+    border: 1px solid var(--cor-borda); /* Borda sutil */
+}
+
+.solucoes .card-back .card_text {
+    font-family: var(--fonte-principal); /* Inter */
+    font-size: 1rem;
+    color: var(--cor-texto-secundario);
+    line-height: 1.5;
+}
+
+.botao-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-saiba-mais {
+    background-color: var(--cor-principal-azevix); /* Seu Roxo */
+    color: var(--cor-fundo-branco);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px; /* Bordas mais sutis */
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-saiba-mais:hover {
+    background-color: var(--cor-acento-azevix); /* Seu Laranja no hover */
+    transform: translateY(-2px);
+}
+
+/* Footer - Adaptando para o estilo do exemplo */
+.main-footer {
+    background-color: var(--cor-texto-primario); /* Dark color do exemplo */
+    color: var(--cor-fundo-branco);
+    padding: 40px 0 20px;
+    font-size: 0.95rem;
+    font-family: var(--fonte-principal);
+}
+
+.main-footer .footer-logo {
+    max-width: 180px; /* Logo maior no footer */
+    margin-bottom: 15px;
+}
+
+.main-footer .footer-slogan {
+    color: var(--cor-texto-secundario); /* Cinza para slogan */
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.main-footer .footer-section {
+    margin-bottom: 30px; /* Espaço entre as colunas em telas menores */
+}
+
+.main-footer .footer-title {
+    color: var(--cor-acento-azevix); /* Seu Laranja para títulos de seção */
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.main-footer .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-footer .footer-links li {
+    margin-bottom: 10px;
+}
+
+.main-footer .footer-links li a {
+    color: var(--cor-fundo-claro); /* Cor clara para links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-footer .footer-links li a:hover {
+    color: var(--cor-acento-azevix); /* Seu Laranja no hover */
+}
+
+.main-footer .social-icons a {
+    color: var(--cor-fundo-claro);
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.main-footer .social-icons a:hover {
+    color: var(--cor-acento-azevix); /* Seu Laranja no hover */
+}
+
+.main-footer .footer-bottom {
+    border-top: 1px solid var(--cor-borda); /* Cor da borda mais escura para contraste no footer */
+    padding-top: 20px;
+    margin-top: 30px;
+    color: var(--cor-texto-secundario);
+    font-size: 0.85rem;
+}
+
+.main-footer .footer-bottom a {
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-footer .footer-bottom a:hover {
+    color: var(--cor-acento-azevix);
+    text-decoration: underline;
+}
+
+/* Estilos de responsividade */
+@media (max-width: 992px) {
+    .main-navbar .navbar-nav {
+        background-color: var(--cor-fundo-branco);
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .main-navbar .navbar-nav .nav-link,
+    .main-navbar .dropdown-item {
+        padding: 8px 10px;
+    }
+
+    .main-navbar .navbar-toggler {
+        border-color: var(--cor-borda);
+    }
+
+    .hero-content {
+        left: 5%;
+        right: 5%;
+        text-align: center;
+        transform: translateY(-50%); /* Ajusta centralização vertical para telas menores */
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    .hero-content p {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+    
+    .secao_solucoes {
+        padding: 40px 0;
+    }
+
+    .titulo_solucoes {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+    }
+
+    .subtitulo_solucoes {
+        font-size: clamp(1rem, 3.5vw, 1.3rem);
+    }
+
+    .solucoes .card {
+        width: 220px;
+        height: 180px;
+    }
+    .solucoes .card-front img {
+        width: 50px;
+        height: 50px;
+    }
+    .solucoes .card-front h3 {
+        font-size: 1.1rem;
+    }
+    .solucoes .card-back .card_text {
+        font-size: 0.9rem;
+    }
+
+    .main-footer .footer-section {
+        text-align: center;
+    }
+
+    .main-footer .footer-title {
+        text-align: center;
+    }
+
+    .main-footer .footer-links {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .main-footer .social-icons {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .main-footer .footer-bottom .col-md-6 {
+        text-align: center !important; /* Força centralização */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-contato .container-fluid {
+        justify-content: center; /* Centraliza no mobile */
+        flex-wrap: wrap;
+        padding-right: 0;
+    }
+    .navbar-contato .contato-link {
+        margin: 5px 10px;
+    }
+
+    .hero-content {
+        left: 0;
+        right: 0;
+        padding: 0 15px; /* Adiciona padding lateral */
+    }
+
+    .main-footer .footer-bottom .col-md-6 {
+        text-align: center !important;
+        margin-bottom: 10px;
+    }
+}
+
+/* Estilos para a página Sobre Nós */
+/* Ajustes de cor para elementos no corpo da página */
+.text-primary-azevix { /* Nova classe para seu Roxo principal */
+    color: var(--cor-principal-azevix) !important;
+}
+
+.text-secondary-azevix { /* Nova classe para seu Laranja de acento */
+    color: var(--cor-acento-azevix) !important;
+}
+
+.text-primary-content { /* Cor para textos primários de conteúdo */
+    color: var(--cor-texto-primario) !important;
+}
+
+.text-secondary-content { /* Cor para textos secundários de conteúdo */
+    color: var(--cor-texto-secundario) !important;
+}
+
+.text-orange { /* Para os ícones de Missão, Visão, Valores (se você quiser laranja) */
+    color: var(--cor-acento-azevix) !important; 
+}
+
+.bg-light-purple { /* Fundo para a seção "Nossa História" */
+    background-color: var(--cor-fundo-claro); /* Usando a variável de fundo claro */
+}
+
+/* Ajustes para botões gerais do site (se não existirem) */
+.btn-primary { /* Este já estava ok */
+    background-color: var(--cor-acento-azevix); /* Laranja */
+    color: var(--cor-fundo-branco);
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover { /* Este já estava ok */
+    background-color: var(--cor-principal-azevix); /* Roxo */
+    color: var(--cor-fundo-branco);
+}
+
+.custom-btn-secondary { /* Estilo específico para o botão no "Por que escolher?" */
+    background-color: var(--cor-principal-azevix); /* Seu Roxo */
+    color: var(--cor-fundo-branco);
+    border: none;
+    padding: 15px 35px; /* Aumentei um pouco o padding para ser mais impactante */
+    border-radius: 5px; /* Ajustei para 5px para consistência */
+    font-size: 1.2rem; /* Aumentei a fonte */
+    font-weight: 600; /* Mais negrito */
+    text-decoration: none; /* Garante que não tenha sublinhado se for um link */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-btn-secondary:hover {
+    background-color: var(--cor-acento-azevix); /* Seu Laranja no hover */
+    transform: translateY(-3px); /* Efeito de elevação maior */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Estilos para cards na seção Missão/Visão/Valores */
+.card {
+    border-radius: 10px;
+    border: 1px solid var(--cor-borda); /* Adiciona uma borda sutil */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra mais suave */
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Sombra maior no hover */
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.card .fa-3x { /* Aumenta o tamanho dos ícones nos cards */
+    font-size: 3rem; 
+}
+
+/* Estilo para lista de valores */
+.list-unstyled li {
+    padding-bottom: 8px; /* Mais espaçamento */
+    display: flex; /* Para alinhar o ícone com o texto */
+    align-items: center;
+}
+
+.list-unstyled li i {
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
+}
+
+/* Para o h1 principal da página sobre */
+.display-4.fw-bold.text-primary.mb-3 {
+    color: var(--cor-principal-azevix) !important;
+}
+/* Para os parágrafos lead */
+.lead.text-secondary-color {
+    color: var(--cor-texto-primario) !important; /* Usar a cor de texto primária para o lead */
+}
+/* Para h2 e h3 nos cards e seções */
+.h3.fw-bold.text-primary.mb-3 {
+    color: var(--cor-principal-azevix) !important;
+}
+.h5.fw-bold.text-secondary-color {
+    color: var(--cor-texto-primario) !important; /* Usar a cor de texto primária */
+}
+
+/* Estilos para a seção de Soluções */
+.solucoes-section {
+    padding: 60px 0;
+    background-color: var(--cor-fundo-claro); /* Fundo claro para a seção */
+}
+
+.titulo-solucoes-principal {
+    font-family: var(--fonte-titulo-impacto); /* Krona One */
+    color: var(--cor-principal-azevix); /* Seu Roxo */
+    font-size: clamp(2.2rem, 4.5vw, 3rem);
+}
+
+.subtitulo-solucoes {
+    font-family: var(--fonte-principal); /* Inter */
+    color: var(--cor-texto-secundario); /* Cinza médio */
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.solucoes-section .card {
+    background-color: var(--cor-fundo-branco); /* Fundo branco para os cards */
+    border-radius: 15px; /* Bordas arredondadas */
+    padding: 40px 30px; /* Padding interno */
+    height: 100%; /* Garante que todos os cards tenham a mesma altura */
+    border: 1px solid var(--cor-borda); /* Borda sutil */
+    transition: all 0.3s ease; /* Transição suave para transform e box-shadow */
+    position: relative; /* Necessário para o ::before */
+    overflow: hidden; /* Garante que a barra ::before não vaze */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espalha o conteúdo verticalmente */
+}
+
+/* A barra colorida que aparece no topo */
+.solucoes-section .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px; /* Espessura da barra */
+    /* Gradiente usando suas cores de marca */
+    background: linear-gradient(90deg, var(--cor-principal-azevix), var(--cor-acento-azevix));
+    transform: scaleX(0); /* Inicialmente escondida (escala horizontal 0) */
+    transform-origin: left; /* A animação começa da esquerda */
+    transition: transform 0.3s ease-out; /* Transição suave para a barra */
+}
+
+/* Efeito de hover no cartão */
+.solucoes-section .card:hover {
+    transform: translateY(-8px); /* Eleva um pouco o cartão */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+    border-color: transparent; /* Remove a borda para não colidir com o ::before */
+}
+
+/* Revela a barra colorida no hover */
+.solucoes-section .card:hover::before {
+    transform: scaleX(1); /* Expande a barra para 100% da largura */
+}
+
+.solucoes-card-icon {
+    font-size: 3.5rem; /* Tamanho do ícone */
+    color: var(--cor-principal-azevix); /* Cor inicial do ícone (roxo) - NÃO MUDA NO HOVER */
+    margin-bottom: 20px;
+    transition: none; /* Garante que o ícone não tenha transição de cor, se houver conflito */
+}
+
+.solucoes-card-title {
+    font-family: var(--fonte-titulo-impacto); /* Krona One */
+    font-size: 1.6rem;
+    color: var(--cor-texto-primario); /* Cor do título (cinza escuro) - NÃO MUDA NO HOVER */
+    margin-bottom: 15px;
+}
+
+.solucoes-card-text {
+    font-family: var(--fonte-principal); /* Inter */
+    color: var(--cor-texto-secundario); /* Cor do texto (cinza médio) */
+    font-size: 1rem;
+    line-height: 1.6;
+    flex-grow: 1; /* Permite que o texto ocupe o espaço disponível */
+    margin-bottom: 20px; /* Espaçamento antes do botão */
+}
+
+.solucoes-section .btn-saiba-mais-servico {
+    background-color: var(--cor-acento-azevix); /* Cor do botão (laranja) */
+    color: var(--cor-fundo-branco); /* Texto do botão (branco) */
+    border: 2px solid var(--cor-acento-azevix); /* Borda laranja */
+    padding: 10px 25px;
+    border-radius: 50px; /* Botão mais arredondado */
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block; /* Para o padding e margem funcionarem */
+    transition: all 0.3s ease;
+    margin-top: auto; /* Empurra o botão para o final do card */
+}
+
+.solucoes-section .btn-saiba-mais-servico:hover {
+    background-color: var(--cor-principal-azevix); /* Roxo no hover do botão */
+    border-color: var(--cor-principal-azevix);
+    color: var(--cor-fundo-branco); /* Mantém o texto branco para contraste */
+    transform: translateY(-2px); /* Eleva sutilmente o botão */
+}
+
+/* --- Estilos para Páginas de Serviço Individual --- */
+
+.hero-subpage-service-section {
+    background-color: var(--cor-principal-azevix); /* Roxo */
+    color: var(--cor-fundo-branco);
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    /* Opcional: Adicionar um padrão ou imagem de fundo sutil */
+    /* background-image: url('../img/pattern-subtle.png'); */
+    /* background-size: cover; */
+}
+
+.hero-subpage-title {
+    font-family: var(--fonte-titulo-impacto); /* Krona One */
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--cor-fundo-branco);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-subpage-subtitle {
+    font-family: var(--fonte-principal); /* Inter */
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--cor-fundo-branco);
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+.section-heading {
+    font-family: var(--fonte-titulo-impacto); /* Krona One */
+    color: var(--cor-texto-primario);
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading.text-center {
+    text-align: center;
+}
+
+.lead {
+    font-family: var(--fonte-principal);
+    font-size: 1.15rem;
+    color: var(--cor-texto-secundario);
+    line-height: 1.8;
+}
+
+.feature-list li {
+    font-family: var(--fonte-principal);
+    font-size: 1.05rem;
+    color: var(--cor-texto-primario);
+    margin-bottom: 10px;
+}
+
+.feature-list li i {
+    color: var(--cor-principal-azevix); /* Roxo para os ícones da lista */
+}
+
+/* Ícones de blocos de "Como Fazemos" e "Diferenciais" */
+.icon-lg {
+    font-size: 4rem;
+    color: var(--cor-principal-azevix); /* Cor principal para os ícones grandes */
+}
+
+.icon-md {
+    font-size: 3rem;
+    color: var(--cor-acento-azevix); /* Cor de acento para os ícones médios */
+}
+
+/* Classe para texto com cor principal da Azevix */
+.text-primary-azevix {
+    color: var(--cor-principal-azevix) !important;
+}
+
+/* Classe para texto com cor de acento da Azevix */
+.text-accent-azevix {
+    color: var(--cor-acento-azevix) !important;
+}
+
+/* Ajustes para imagens dentro das seções de conteúdo */
+.img-fluid.rounded.shadow-lg {
+    border-radius: 15px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+/* Estilos para a página de faleConosco (mantidos e adaptados) */
+.bloco-contato {
+    background-color: var(--cor-fundo-claro); /* Usando a cor de fundo clara do novo padrão */
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Adiciona uma sombra para destaque */
+}
+
+.titulo-fale-pequeno {
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto-secundario);
+    font-weight: 600; /* Um pouco mais encorpado */
+    font-size: 0.95rem;
+    text-transform: uppercase; /* Para um toque mais moderno */
+    letter-spacing: 0.5px;
+}
+
+.titulo-fale-medio {
+    font-family: var(--fonte-titulo-impacto);
+    color: var(--cor-principal-azevix); /* Seu Roxo */
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.texto-fale {
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+    color: var(--cor-texto-primario);
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.texto-bloco-grande {
+    font-family: var(--fonte-titulo-impacto);
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: var(--cor-acento-azevix); /* Seu Laranja */
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.texto-bloco-medio {
+    font-family: var(--fonte-principal);
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    color: var(--cor-principal-azevix); /* Seu Roxo */
+    margin-top: 5px;
+}
+
+form input, form textarea {
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda); /* Borda mais neutra */
+    font-family: var(--fonte-principal);
+    padding: 10px 15px; /* Aumenta um pouco o padding */
+    width: 100%; /* Garante que ocupe a largura total */
+    margin-bottom: 15px; /* Espaçamento entre campos */
+    color: var(--cor-texto-primario);
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--cor-principal-azevix); /* Borda roxa no focus */
+    box-shadow: 0 0 0 0.2rem rgba(97, 42, 145, 0.25); /* Sombra suave do roxo */
+}
+
+/* Nova seção CTA (Call to Action) - Padrão para as páginas internas */
+.cta-section {
+    background-color: var(--cor-principal-azevix); /* Seu Roxo */
+    color: var(--cor-fundo-branco);
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 10px; /* Adiciona um pouco de borda */
+    margin: 40px auto; /* Centraliza e adiciona margem */
+    max-width: 1000px;
+}
+
+.cta-section h2 {
+    font-family: var(--fonte-titulo-impacto); /* Krona One */
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+    color: var(--cor-fundo-branco);
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-family: var(--fonte-principal);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    color: var(--cor-fundo-claro);
+}
+
+.cta-section .btn {
+    background-color: var(--cor-acento-azevix); /* Seu Laranja */
+    color: var(--cor-fundo-branco);
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-section .btn:hover {
+    background-color: var(--cor-fundo-branco); /* Fundo branco no hover */
+    color: var(--cor-principal-azevix); /* Texto roxo no hover */
+    transform: translateY(-3px);
+}

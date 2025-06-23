@@ -1,0 +1,22 @@
+[
+  {
+    "id": "2025-06-22",
+    "title": "A revolução da Infrastructure as Code: Por que Todo Desenvolvedor Deveria Conhecer",
+    "date": "2024-06-22",
+    "author": "Equipe Azevix",
+    "summary": "A infraestrutura como código (IaC) está transformando a forma como gerenciamos e provisionamos recursos de TI. Neste post, discutimos por que todo desenvolvedor deve se familiarizar com essa prática e como ela pode beneficiar seus projetos.",
+    "imageUrl": "../../img/blog/2025-06-22.svg",
+    "link": "/pages/blog/posts/2025-06-22.html"
+  },
+  {
+    "id": "2025-06-20",
+    "title": "Bem-vindo ao Nosso Blog de Tecnologia!",
+    "date": "2024-06-20",
+    "author": "Equipe Azevix",
+    "summary": "Neste post inaugural, exploramos a visão da Azevix sobre o futuro da tecnologia e o que você pode esperar do nosso blog: insights, tendências e guias práticos.",
+    "imageUrl": "../../img/blog/2025-06-20.svg",
+    "link": "/pages/blog/posts/2025-06-20.html"
+  }
+
+
+]

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu IP - DevTools Azevix</title>
+  <meta name="description" content="Descubra seu endereço IP público (IPv4 e IPv6) de forma rápida e segura com a ferramenta 'Meu IP' da Azevix.">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <div class="navbar-contato d-none d-lg-block">
+    <div class="container-fluid">
+      <a class="contato-link" href="tel:+5581996885589">
+        <i class="fas fa-phone-alt"></i> (81) 99688-5589
+      </a>
+      <a class="contato-link" href="mailto:contato@azevix.com.br">
+        <i class="fas fa-envelope"></i> contato@azevix.com.br
+      </a>
+      <a class="contato-link" href="https://www.instagram.com/azevixtecnologia" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a class="contato-link" href="http://azevix.ddns.net:8080/" target="_blank">
+        <i class="fas fa-headset"></i> Suporte GLPI
+      </a>
+    </div>
+  </div>
+
+  <header>
+    <nav class="navbar navbar-expand-lg main-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../img/logo.png" alt="Azevix Tecnologia" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./sobre.html">Sobre Nós</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSolucoes" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Soluções
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownSolucoes">
+                <li><a class="dropdown-item" href="./servicos.html">Nossas Soluções</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="./servicos-gerenciados.html">Serviços Gerenciados</a></li>
+                <li><a class="dropdown-item" href="./nuvem.html">Computação em Nuvem</a></li>
+                <li><a class="dropdown-item" href="./backup-nuvem.html">Backup em Nuvem</a></li>
+                <li><a class="dropdown-item" href="./ciberseguranca.html">Cibersegurança</a></li>
+                <li><a class="dropdown-item" href="./devops-automacao.html">DevOps e Automação</a></li>
+                <li><a class="dropdown-item" href="./monitoramento.html">Monitoramento</a></li>
+                <li><a class="dropdown-item" href="./desenvolvimento-web.html">Desenvolvimento Web</a></li>
+                <li><a class="dropdown-item" href="./telefonia.html">Telefonia Digital</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./devtools.html">DevTools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./blog/index.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./faleConosco.html">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <h2>Descubra seu IP Público</h2>
+    <p class="mb-4">Essa ferramenta mostra seu endereço IP público atual, útil para diagnósticos de rede, configurações de firewall ou acesso remoto.</p>
+
+    <div class="card shadow-sm">
+      <div class="card-body text-center">
+        <h5 class="card-title">Seu IP:</h5>
+        <div id="ip-display">
+          <div id="loading-state">
+            <i class="fas fa-spinner fa-spin me-2"></i>
+            <span>Detectando...</span>
+          </div>
+          <div id="ip-result" class="d-none">
+            <p class="fs-4 text-primary mb-1">
+              <span id="ip-value" class="fw-bold"></span>
+            </p>
+            <p class="text-muted small mb-0">
+              <span id="ip-type"></span>
+            </p>
+          </div>
+        </div>
+        <input type="text" id="ip-copy-field" class="form-control text-center d-none mt-3" readonly>
+        <button class="btn btn-outline-secondary mt-3" onclick="copiarIP()" id="copy-btn" disabled>
+          <i class="fas fa-copy me-2"></i>Copiar
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 footer-section">
+          <img src="../img/logo.png" alt="Azevix Tecnologia - Logo" class="footer-logo">
+          <p class="footer-slogan">A tecnologia que impulsiona seu negócio.</p>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/azevixtecnologia" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-2 offset-lg-1 footer-section">
+          <h4 class="footer-title">Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="./sobre.html">Sobre Nós</a></li>
+            <li><a href="./servicos.html">Soluções</a></li>
+            <li><a href="./devtools.html">DevTools</a></li>
+            <li><a href="./blog/index.html">Blog</a></li>
+            <li><a href="./faleConosco.html">Contato</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 footer-section">
+          <h4 class="footer-title">Soluções</h4>
+          <ul class="footer-links">
+            <li><a class="dropdown-item" href="./servicos.html">Visão Geral</a></li>
+            <li><a class="dropdown-item" href="./servicos-gerenciados.html">Serviços Gerenciados</a></li>
+            <li><a class="dropdown-item" href="./nuvem.html">Computação em Nuvem</a></li>
+            <li><a class="dropdown-item" href="./backup-nuvem.html">Backup em Nuvem</a></li>
+            <li><a class="dropdown-item" href="./ciberseguranca.html">Cibersegurança</a></li>
+            <li><a class="dropdown-item" href="./devops-automacao.html">DevOps e Automação</a></li>
+            <li><a class="dropdown-item" href="./monitoramento.html">Monitoramento</a></li>
+            <li><a class="dropdown-item" href="./desenvolvimento-web.html">Desenvolvimento Web</a></li>
+            <li><a class="dropdown-item" href="./telefonia.html">Telefonia Digital</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 footer-section">
+          <h4 class="footer-title">Contato</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:contato@azevix.com.br">contato@azevix.com.br</a></li>
+            <li><a href="tel:+5581996885589">(81) 99688-5589</a></li>
+            <li><a href="http://azevix.ddns.net:8080/" target="_blank">Suporte GLPI</a></li>
+            <li><a href="./faleConosco.html">Fale Conosco</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="row">
+          <div class="col-md-6">
+            <p>© 2024 Azevix Tecnologia. Todos os direitos reservados.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <a href="./politicaPrivacidade.html">Política de Privacidade</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Elementos DOM
+    const loadingState = document.getElementById('loading-state');
+    const ipResult = document.getElementById('ip-result');
+    const ipValueElement = document.getElementById('ip-value');
+    const ipTypeElement = document.getElementById('ip-type');
+    const ipCopyField = document.getElementById('ip-copy-field');
+    const copyBtn = document.getElementById('copy-btn');
+
+    let currentIp = ''; // Variável para armazenar o IP atual
+
+    // Função para mostrar o resultado do IP
+    function showIpResult(ip, type = '') {
+        currentIp = ip;
+        
+        // Esconder loading e mostrar resultado
+        loadingState.classList.add('d-none');
+        ipResult.classList.remove('d-none');
+        
+        // Preencher valores
+        ipValueElement.textContent = ip;
+        ipTypeElement.textContent = type ? `Tipo: ${type}` : '';
+        
+        // Habilitar botão de copiar  
+        copyBtn.disabled = false;
+        
+        // Preencher campo de cópia manual (caso seja necessário)
+        ipCopyField.value = ip;
+        
+        console.log('IP detectado e exibido:', ip, type);
+    }
+    
+    // Função para mostrar erro
+    function showError() {
+        loadingState.classList.add('d-none');
+        ipResult.classList.remove('d-none');
+        
+        ipValueElement.textContent = 'Não foi possível detectar seu IP';
+        ipTypeElement.textContent = '';
+        currentIp = '';
+        copyBtn.disabled = true;
+        
+        console.log('Erro ao detectar IP');
+    }
+    
+    // Detectar IP - primeiro tenta IPv4, depois IPv6
+    function detectarIP() {
+        console.log('Iniciando detecção de IP...');
+        
+        // Tenta primeiro a API IPv4
+        fetch('https://api.ipify.org?format=json')
+            .then(response => {
+                if (!response.ok) throw new Error('Falha na API IPv4');
+                return response.json();
+            })
+            .then(data => {
+                console.log('IPv4 detectado:', data.ip);
+                showIpResult(data.ip, 'IPv4');
+            })
+            .catch(error => {
+                console.log('Falha no IPv4, tentando IPv6...', error);
+                
+                // Em caso de falha no IPv4, tenta a API IPv6
+                fetch('https://api64.ipify.org?format=json')
+                    .then(response => {
+                        if (!response.ok) throw new Error('Falha na API IPv6');
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('IPv6 detectado:', data.ip);
+                        showIpResult(data.ip, 'IPv6');
+                    })
+                    .catch(error => {
+                        console.error('Falha em ambas as APIs:', error);
+                        showError();
+                    });
+            });
+    }
+
+    // Função para copiar IP
+    function copiarIP() {
+        console.log('Iniciando cópia do IP:', currentIp);
+        
+        if (!currentIp) {
+            alert('Não há IP válido para copiar no momento.');
+            return;
+        }
+
+        // Tenta copiar usando a Clipboard API moderna
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(currentIp)
+                .then(() => {
+                    console.log('IP copiado com sucesso via Clipboard API');
+                    
+                    // Feedback visual temporário
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fas fa-check me-2"></i>Copiado!';
+                    copyBtn.classList.remove('btn-outline-secondary');
+                    copyBtn.classList.add('btn-success');
+                    
+                    setTimeout(() => {
+                        copyBtn.innerHTML = originalText;
+                        copyBtn.classList.remove('btn-success');
+                        copyBtn.classList.add('btn-outline-secondary');
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Erro na Clipboard API:', err);
+                    usarFallbackCopy();
+                });
+        } else {
+            console.log('Clipboard API não disponível, usando fallback');
+            usarFallbackCopy();
+        }
+    }
+    
+    // Método de fallback para cópia
+    function usarFallbackCopy() {
+        try {
+            // Cria um elemento temporário para seleção
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = currentIp;
+            tempTextArea.style.position = 'fixed';
+            tempTextArea.style.left = '-999999px';
+            tempTextArea.style.top = '-999999px';
+            document.body.appendChild(tempTextArea);
+            
+            tempTextArea.focus();
+            tempTextArea.select();
+            
+            const successful = document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+            
+            if (successful) {
+                console.log('IP copiado com sucesso via fallback');
+                
+                // Feedback visual
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check me-2"></i>Copiado!';
+                copyBtn.classList.remove('btn-outline-secondary');
+                copyBtn.classList.add('btn-success');
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.classList.remove('btn-success');
+                    copyBtn.classList.add('btn-outline-secondary');
+                }, 2000);
+            } else {
+                throw new Error('document.execCommand falhou');
+            }
+        } catch (err) {
+            console.error('Erro no método de fallback:', err);
+            mostrarCopiaManual();
+        }
+    }
+    
+    // Mostra campo para cópia manual em último caso
+    function mostrarCopiaManual() {
+        ipCopyField.classList.remove('d-none');
+        ipCopyField.focus();
+        ipCopyField.select();
+        
+        alert('Não foi possível copiar automaticamente. O IP foi selecionado no campo abaixo - pressione Ctrl+C (ou Cmd+C no Mac) para copiar.');
+        console.log('Mostrando campo para cópia manual');
+    }
+    
+    // Inicializar detecção ao carregar a página
+    document.addEventListener('DOMContentLoaded', detectarIP);
+  </script>
+</body>
+</html>

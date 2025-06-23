@@ -1,0 +1,124 @@
+/* Estilos para a página principal do blog (pages/blog/index.html) */
+.blog-card {
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-color: var(--cor-fundo-branco);
+    overflow: hidden; /* Garante que a imagem arredondada não ultrapasse */
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card-img {
+    width: 100%;
+    height: 200px; /* Altura fixa para as imagens dos cards */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.blog-card-title {
+    font-family: var(--fonte-conteudo-titulo);
+    font-size: 1.4rem;
+    color: var(--cor-principal-azevix);
+    margin-bottom: 10px;
+}
+
+.blog-card-summary {
+    font-family: var(--fonte-principal);
+    font-size: 0.95rem;
+    color: var(--cor-texto-secundario);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    min-height: 70px; /* Garante altura mínima para resumos */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita o resumo a 3 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.blog-card-meta {
+    font-family: var(--fonte-principal);
+    font-size: 0.85rem;
+    color: var(--cor-texto-secundario);
+    margin-top: auto; /* Empurra o meta e o botão para o fundo do card */
+}
+
+.blog-card-button {
+    background-color: var(--cor-acento-azevix);
+    color: var(--cor-fundo-branco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.blog-card-button:hover {
+    background-color: #e07b00; /* Um tom um pouco mais escuro do laranja */
+    color: var(--cor-fundo-branco);
+}
+
+/* Estilos para a página de post individual (pages/blog/posts/*.html) */
+.blog-post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--cor-fundo-branco);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.blog-post-title {
+    font-family: var(--fonte-conteudo-titulo);
+    color: var(--cor-principal-azevix);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    line-height: 1.2;
+}
+
+.blog-post-meta {
+    font-family: var(--fonte-principal);
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 30px;
+}
+
+.blog-post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 30px auto;
+}
+
+.blog-post-body {
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--cor-texto-primario);
+}
+
+.blog-post-body h2 {
+    font-family: var(--fonte-conteudo-titulo);
+    font-size: 1.6rem;
+    color: var(--cor-acento-azevix);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.blog-post-body p {
+    margin-bottom: 15px;
+}
+
+.blog-post-body ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.blog-post-body li {
+    margin-bottom: 5px;
+}
